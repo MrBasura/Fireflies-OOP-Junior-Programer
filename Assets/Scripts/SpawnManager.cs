@@ -45,7 +45,7 @@ public class SpawnManager : MonoBehaviour
         if (!isSpawningFirefly && firefliesCounter == 0 && playerScript.playerHasFirefly == false && gameIsActive)
         {
             isSpawningFirefly = true;
-            SpawnNextFirefly();
+            SpawnNextFirefly(); // ABSTRACTION
         }
 
 

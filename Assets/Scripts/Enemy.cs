@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public float speed;
     private float boundry = 22;
@@ -31,8 +31,12 @@ public class Enemy : MonoBehaviour
 
         if (spawnManagerScript.timeToWait == 1)
         {
-            speed = 3;
+            SetEnemySpeedAfterLastWave();
         }
 
+    }
+    public virtual void SetEnemySpeedAfterLastWave()
+    {
+        speed = 3;
     }
 }
