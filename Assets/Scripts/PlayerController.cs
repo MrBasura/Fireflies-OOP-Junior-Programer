@@ -7,7 +7,22 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    private float _speed = 5;
+    public float speed // ENCAPSULATION
+    {
+        get { return _speed; }
+        set
+        {
+            if (value < 0.0f)
+            {
+                Debug.LogError("You can't have negative speed!");
+            }
+            else
+            {
+                _speed = value;
+            }
+        }
+    }
     public float rotationSpeed;
     public float verticalInput;
     public float horizontalInput;
@@ -40,8 +55,8 @@ public class PlayerController : MonoBehaviour
     {
         if (spawnManagerScript.gameIsActive)
         {
-            MovePlayer(); //Player movement Script
-            CheckForPlayerMovement();
+            MovePlayer(); //Player movement Script // ABSTRACTION
+            CheckForPlayerMovement(); // ABSTRACTION
         }
         
     }
